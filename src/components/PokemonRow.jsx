@@ -1,14 +1,15 @@
-import React from 'react'
-import { Button } from '@mui/material'
+import React, { useContext } from 'react'
+import { Button, TableRow, TableCell } from '@mui/material'
+import pokemonCtx from '../pokemonCtx'
 
-const PokemonRow = ({ pokemon, onInfo }) => {
+const PokemonRow = ({ pokemon }) => {
+    const { setSelectedPokemon } = useContext(pokemonCtx)
     return (
-        <tr>
-            <td>{pokemon.name.english}</td>
-            <td>{pokemon.type.join(", ")}</td>
-            <td><Button variant='outlined' onClick={() => onInfo(pokemon)}>Info</Button></td>
-        </tr>
+        <TableRow>
+            <TableCell>{pokemon.name.english}</TableCell>
+            <TableCell>{pokemon.type.join(", ")}</TableCell>
+            <TableCell><Button variant='outlined' onClick={() => setSelectedPokemon(pokemon)}>Info</Button></TableCell>
+        </TableRow>
     )
 }
-
 export default PokemonRow
