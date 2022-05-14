@@ -3,7 +3,7 @@ import pokemonCtx from "../pokemonCtx"
 import { Card, CardContent, CardActions, Typography, Button } from "@mui/material"
 
 const PokemonInfo = () => {
-    const { selectedPokemon, setSelectedPokemon } = useContext(pokemonCtx)
+    const { state: { selectedPokemon }, dispatch } = useContext(pokemonCtx)
     return selectedPokemon && (
         <Card sx={{ height: 350, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
             <CardContent>
@@ -14,7 +14,7 @@ const PokemonInfo = () => {
 
             </CardContent>
             <CardActions>
-                <Button variant='contained' color="secondary" onClick={() => setSelectedPokemon(null)}>dismiss</Button>
+                <Button variant='contained' color="secondary" onClick={() => dispatch({ type: 'SET_SELECTED_POKEMON', payload: null })}>dismiss</Button>
             </CardActions>
 
         </Card>

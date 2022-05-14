@@ -4,7 +4,7 @@ import PokemonRow from "./PokemonRow";
 import { Paper, TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from "@mui/material"
 
 const PokemonTable = () => {
-    const { filter, data } = useContext(pokemonCtx)
+    const { state: { data, filter } } = useContext(pokemonCtx)
     return (
         <TableContainer component={Paper} sx={{ display: "flex", mt: "2em" }}>
             <Table>

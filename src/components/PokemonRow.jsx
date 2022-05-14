@@ -3,12 +3,12 @@ import { Button, TableRow, TableCell } from '@mui/material'
 import pokemonCtx from '../pokemonCtx'
 
 const PokemonRow = ({ pokemon }) => {
-    const { setSelectedPokemon } = useContext(pokemonCtx)
+    const { dispatch } = useContext(pokemonCtx)
     return (
         <TableRow>
             <TableCell>{pokemon.name.english}</TableCell>
             <TableCell>{pokemon.type.join(", ")}</TableCell>
-            <TableCell><Button variant='outlined' onClick={() => setSelectedPokemon(pokemon)}>Info</Button></TableCell>
+            <TableCell><Button variant='outlined' onClick={() => dispatch({ type: 'SET_SELECTED_POKEMON', payload: pokemon })}>Info</Button></TableCell>
         </TableRow>
     )
 }
